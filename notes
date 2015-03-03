@@ -1,0 +1,3 @@
+Notes
+
+The code compiles a shared library in the load program routine.  Compilation flags in this routine are machine dependend and are not adaptive (you must change them for your particular arcitecture)

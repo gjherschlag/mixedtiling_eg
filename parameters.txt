@@ -1,0 +1,42 @@
+#Simulation parameters
+dT      10000    # ps
+dt      0.001;   # time step is adaptive
+Time    1000000  # ps
+
+#Physical parameters
+Temp     600.0
+
+#Particle types
+vaporp CO CO2 O2
+allp   CO CO2 O2 O e
+sitep  CO O e 
+
+#Vapor parameters
+p_CO    1.0
+p_CO2   0.0
+p_O2    1.0
+
+#Energy levels
+#site types
+sitetypes   b c     # atop bridge hollow
+sitegeo     b,c     # site geometry
+#connections and periodic extensions are implied for now
+
+#Particle Atomization, Bridge, Cus,   molecular weight 
+E: CO     -           -100.0  -100.0  28.0
+E: CO2    1000.0       -       -      44.0
+E: O      -           -376.8  -475.4  16.0
+E: O2     569.4        -       -      32.0
+E: e      -              0       0     0.0
+#NOTE - energies may be input to derive rates based on TST
+#       in this code, reaction rates are defined manually 
+#       based on previous work (see initialization routine)
+
+#Reaction list with rates and activation energies
+Rx: gCO2 + e + e  <-> CO + O           so: 1 1    a: 0
+Rx: O + O         <-> gO2 + e + e      so: 1 1    a: 0
+Rx: gCO + e       <-> CO               so: 1 1    a: 0
+
+#Flag to execute a run, run the test suite or do both
+test     0
+execute  1
